@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { db } from '../firebase-config';
-import { collection, addDoc, doc } from 'firebase/firestore'
+import { db,auth } from '../firebase-config';
+import { collection, addDoc } from 'firebase/firestore'
 
 function CreatePost() {
   const [message,setMessage] = useState("");
@@ -18,8 +18,8 @@ function CreatePost() {
   const thoughts = collection(db, "thoughts");
 
   const handleSubmit = async () => {
-    console.log(data);
-    await addDoc(thoughts, { Title: data.title, Desc: data.desc })
+    // console.log(data);
+    await addDoc(thoughts, { Name:auth.currentUser.displayName ,Title: data.title, Desc: data.desc })
     setMessage(`Your Thought Inserted Successfully.`)
     setData({
       title: "",
@@ -36,7 +36,7 @@ function CreatePost() {
         </div>
         <div className="mb-3">
           <label for="exampleFormControlTextarea1" className="form-label">Description</label>
-          <textarea name="desc" value={data.desc} onChange={handleChange} className="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+          <textarea name="desc" value={data.desc} onChange={handleChange} className="form-control" id="exampleFormControlTextarea1" rows="7"></textarea>
         </div>
         {message && <p>{message}  GoTo <a href="/">Home</a></p>}
         <button onClick={handleSubmit} className='btn btn-primary my-2'>Create Post</button>

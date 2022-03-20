@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-// import GoogleButton from 'react-google-button'
+import GoogleButton from 'react-google-button'
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import userContext from "../context/userContext"
 
@@ -35,18 +35,18 @@ function Login({setIsAuth}) {
             setError(error.message);
         }
     }
-    // const handleGoogleSubmit = async (e) =>{
-    //     e.preventDefault();
-    //     try{
-    //         await signInGoogle();
-    //         setIsAuth(true);
-    //         localStorage.setItem("isAuth",true);
-    //         navigate("/home")
-    //     }catch (e) {
-    //         setError(e.message);
-    //     }
-    // }
 
+    const handleGoogleSubmit = async (e) =>{
+        e.preventDefault();
+        try{
+            await signInGoogle();
+            setIsAuth(true);
+            localStorage.setItem("isAuth",true);
+            navigate("/")
+        }catch (e) {
+            setError(e.message);
+        }
+    }
     return (
         <>
             <div className="container w-50">
@@ -65,11 +65,11 @@ function Login({setIsAuth}) {
                             <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
                             <input name='password' placeholder="Password" onChange={handleChange} value={cred.password} type="password" className="form-control" id="password" />
                         </div>
-                        {/* <div className="mb-3">
+                        <div className="mb-3">
                         <GoogleButton
                             onClick={ handleGoogleSubmit}
                         />
-                        </div> */}
+                        </div>
                         <div className="mb-3">
                             <Link className="no-underline border-b border-grey-dark text-grey-dark" to="/signup">
                                 Signup

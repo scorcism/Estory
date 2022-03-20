@@ -5,9 +5,9 @@ import UserAuthContext from "./context/UserAuthContext"
 import Home from "./components/Home";
 import ProtectedRoutes from "./components/ProtectedRoutes"
 import Header from "./components/Header";
-import Footer from "./components/Footer";
 import CreatePost from "./components/CreatePost";
 import { useState } from "react";
+import Thought from "./components/Thought";
 
 function App() {
 
@@ -22,6 +22,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login   setIsAuth={setIsAuth}/>} />
             <Route path="/signup" element={<Signup />} />
+            <Route path="/Thought/:id" element={<Thought/>}/>
             <Route path="/create" element={<ProtectedRoutes isAuth={isAuth}><CreatePost  isAuth={isAuth}/></ProtectedRoutes> } />
           </Routes>
         </UserAuthContext>
