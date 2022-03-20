@@ -12,7 +12,7 @@ function Header({ isAuth, setIsAuth }) {
         setIsAuth(false);
         window.location.pathname = "/login"
     }
-    name2 = "Abhishek"; 
+    name2 = "xD"; 
     if (user) {
         var nam = user.email;
         var name = String(nam);
@@ -37,6 +37,9 @@ function Header({ isAuth, setIsAuth }) {
                         </li> : <li className="nav-item" style={{cursor:"pointer"}} ><a className='nav-link' onClick={logout}>Logout</a></li>}
                         <li className="nav-item">
                             <Link className="nav-link" to="/create">Create Post</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/gallery">Image Gallery</Link>
                         </li>
                         <li className="nav-item">
                             <img style={{

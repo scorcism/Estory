@@ -2,12 +2,13 @@ import Login from "./components/Login";
 import Signup from "./components/Signup";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import UserAuthContext from "./context/UserAuthContext"
-import Home from "./components/Home";
+import Home from "./pages/Home";
 import ProtectedRoutes from "./components/ProtectedRoutes"
 import Header from "./components/Header";
 import CreatePost from "./components/CreatePost";
 import { useState } from "react";
 import Thought from "./components/Thought";
+import Gallery from "./pages/Gallery";
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
             <Route path="/signup" element={<Signup />} />
             <Route path="/Thought/:id" element={<Thought/>}/>
             <Route path="/create" element={<ProtectedRoutes isAuth={isAuth}><CreatePost  isAuth={isAuth}/></ProtectedRoutes> } />
+            <Route path="/gallery" element={<Gallery/>}/>
           </Routes>
         </UserAuthContext>
       </Router>
