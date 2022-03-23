@@ -7,9 +7,9 @@ function Header({ isAuth, setIsAuth }) {
     const context = useContext(userContext);
     const { logOut, user } = context;
     const logout = async () => {
-        await logOut();
         localStorage.clear();
         setIsAuth(false);
+        await logOut();
         window.location.pathname = "/login"
     }
     name2 = "xD"; 
