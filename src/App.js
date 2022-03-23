@@ -9,6 +9,7 @@ import CreatePost from "./components/CreatePost";
 import { useState } from "react";
 import Thought from "./components/Thought";
 import Gallery from "./pages/Gallery";
+import Footer from "./components/Footer"
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
             <Route path="/create" element={<ProtectedRoutes isAuth={isAuth}><CreatePost  isAuth={isAuth}/></ProtectedRoutes> } />
             <Route path="/gallery" element={<Gallery/>}/>
           </Routes>
+          <Footer/>
         </UserAuthContext>
       </Router>
     </>
