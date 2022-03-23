@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { db,auth } from '../firebase-config';
 import { collection, addDoc } from 'firebase/firestore'
 
-function CreatePost() {
+function CreatePost({isAuth}) {
   const [message,setMessage] = useState("");
   const [data, setData] = useState({
     title: "",
@@ -29,7 +29,7 @@ function CreatePost() {
 
   return (
     <>
-      <div className="container my-5 w-50">
+     <div className="container my-5 w-50">
         <div className="mb-3">
           <label for="exampleFormControlInput1" className="form-label">Title</label>
           <input name="title" value={data.title} onChange={handleChange} type="text" className="form-control" id="exampleFormControlInput1" placeholder="" />
