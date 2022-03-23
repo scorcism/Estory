@@ -26,7 +26,6 @@ const UserAuthContext = ({ children }) => {
 
     function logOut() {
         return signOut(auth)
-
     }
 
     function signInGoogle() {
@@ -35,11 +34,20 @@ const UserAuthContext = ({ children }) => {
     }
 
     const [getThought, setGetThought] = useState([]);
+    const [gallery, setGallery] = useState([]);
     const thoughts = collection(db, "thoughts");
-
+    const galleryCol = collection(db, "Gallery");
 
 
     useEffect(() => {
+
+        // getting all the images
+        const getImages = async () => {
+            const img = await getDocs(galleryCol)
+            setGallery(img.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+        }
+        getImages();
+
         // Getting all the thoughts
         const getData = async () => {
             const data = await getDocs(thoughts);
@@ -57,7 +65,7 @@ const UserAuthContext = ({ children }) => {
     }, [])
 
     return (
-        <UserContext.Provider value={{ signUp, logIn, user, signInGoogle, logOut, getThought }}>
+        <UserContext.Provider value={{ signUp, logIn, user, signInGoogle, logOut, getThought,gallery }}>
             {children}
         </UserContext.Provider>
     )
