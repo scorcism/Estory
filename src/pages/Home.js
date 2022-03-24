@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import userContext from '../context/userContext';
 import SinglePost from '../components/SinglePost';
 
+
 function Home() {
   const context = useContext(userContext);
   const { getThought } = context;

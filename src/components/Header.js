@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { Link } from "react-router-dom";
 import userContext from '../context/userContext';
 
+
 function Header({ isAuth, setIsAuth }) {
 
     const context = useContext(userContext);
@@ -32,15 +33,15 @@ function Header({ isAuth, setIsAuth }) {
                         <li className="nav-item active">
                             <Link className="nav-link" to="/">Home</Link>
                         </li>
-                        {!isAuth && !localStorage.isAuth ? <li className="nav-item">
-                            <Link className="nav-link" to="/login">Login</Link>
-                        </li> : <li className="nav-item" style={{cursor:"pointer"}} ><a className='nav-link' onClick={logout}>Logout</a></li>}
                         <li className="nav-item">
                             <Link className="nav-link" to="/create">Create Post</Link>
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link" to="/gallery">Image Gallery</Link>
                         </li>
+                        {!isAuth && !localStorage.isAuth ? <li className="nav-item">
+                            <Link className="nav-link" to="/login">Login</Link>
+                        </li> : <li className="nav-item" style={{cursor:"pointer"}} ><a className='nav-link' onClick={logout}>Logout</a></li>}
                         <li className="nav-item">
                             <img style={{
                                 height: "40px",

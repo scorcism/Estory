@@ -26,7 +26,7 @@ function App() {
             <Route path="/signup" element={<Signup />} />
             <Route path="/Thought/:id" element={<Thought/>}/>
             <Route path="/create" element={<ProtectedRoutes isAuth={isAuth}><CreatePost  isAuth={isAuth}/></ProtectedRoutes> } />
-            <Route path="/gallery" element={<Gallery/>}/>
+            <Route path="/gallery" element={<ProtectedRoutes isAuth={isAuth}><Gallery/></ProtectedRoutes> }/>
           </Routes>
           <Footer/>
         </UserAuthContext>

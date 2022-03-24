@@ -18,7 +18,6 @@ function CreatePost({isAuth}) {
   const thoughts = collection(db, "thoughts");
 
   const handleSubmit = async () => {
-    // console.log(data);
     await addDoc(thoughts, { Name:auth.currentUser.displayName ,Title: data.title, Desc: data.desc })
     setMessage(`Your Thought Inserted Successfully.`)
     setData({
