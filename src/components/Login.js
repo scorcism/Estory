@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 import GoogleButton from 'react-google-button'
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import userContext from "../context/userContext"
 
 function Login({setIsAuth}) {
@@ -57,12 +57,12 @@ function Login({setIsAuth}) {
                             {error}
                         </div>}
                         <div className="mb-3">
-                            <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
+                            <label htmlhtmlFor="exampleInputEmail1" className="form-label">Email address</label>
                             <input name='email' placeholder="Email" onChange={handleChange} value={cred.email} type="email" className="form-control" id="email" aria-describedby="emailHelp" />
                             <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
                         </div>
                         <div className="mb-3">
-                            <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
+                            <label htmlhtmlFor="exampleInputPassword1" className="form-label">Password</label>
                             <input name='password' placeholder="Password" onChange={handleChange} value={cred.password} type="password" className="form-control" id="password" />
                         </div>
                         <div className="mb-3">
