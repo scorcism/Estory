@@ -26,6 +26,24 @@ function Thought() {
     getData();
   }, [])
 
+  function CaesarDecryption(message) {
+    var plainText = "";
+    for (var i = 0; i < message.length; i++) {
+      var encryptedCharacter = message.charCodeAt(i);
+      if (encryptedCharacter >= 97 && encryptedCharacter <= 122) {
+        plainText += String.fromCharCode((encryptedCharacter - 97 - 13 + 26) % 26 + 97);
+      } else if (encryptedCharacter >= 65 && encryptedCharacter <= 90) {
+        plainText += String.fromCharCode((encryptedCharacter - 65 - 13 + 26) % 26 + 65);
+      } else {
+        plainText += String.fromCharCode(encryptedCharacter);
+      }
+    }
+    return plainText;
+  }
+  var encTitle = content.Title
+  var encDesc = content.Desc
+  var decTitle = CaesarDecryption(encTitle);
+  var decDesc = CaesarDecryption(encDesc);
 
   return (
     <>
@@ -34,16 +52,16 @@ function Thought() {
           <div className="card-header">
             🐼🍕🍰💃🎊
           </div>
-          <div class="card">
-          <div class="card-body">
-              <h5 class="card-title">{content.Title}</h5>
-              <p class="card-text" >{content.Desc}</p>
-              <p class="card-text"><small class="text-muted">Author | Hero</small></p>
+          <div className="card">
+          <div className="card-body">
+              <h5 className="card-title">{decTitle}</h5>
+              <p className="card-text" >{decDesc}</p>
+              <p className="card-text"><small className="text-muted">Author | Hero</small></p>
             </div>
-            <img style={{ opacity: "0.7" }}  class="card-img-bottom"  src="https://source.unsplash.com/random/780x180/?thoughts,quotes" alt="Image" />
+            <img style={{ opacity: "0.7" }}  className="card-img-bottom"  src="https://source.unsplash.com/random/780x180/?thoughts,quotes" alt="Image" />
           </div>
         </div>
-        <div class="p-2 mb-4 card-footer text-muted text-center">
+        <div className="p-2 mb-4 card-footer text-muted text-center">
     The Unkonow hero
   </div>
       </div>
