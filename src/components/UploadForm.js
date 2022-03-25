@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import useStorage from '../hooks/useStorage';
-import { Navigate } from 'react-router-dom'
 
 function UploadForm() {
 
@@ -17,14 +16,14 @@ function UploadForm() {
             <div className="d-flex align-items-center justify-content-center">
 
                 <div className="border p-3 rounded w-50 ">
-                    <div class="mb-3">
-                        <label for="insta" class="form-label">1: Instagram handle</label>
-                        <input onChange={(e) => { setInsta(e.target.value) }} type="text" class="form-control" id="insta" name="insta" placeholder="scor.cism" />
+                    <div className="mb-3">
+                        <label htmlFor="insta" className="form-label">1: Instagram handle</label>
+                        <input onChange={(e) => { setInsta(e.target.value) }} type="text" className="form-control" id="insta" name="insta" placeholder="scor.cism" />
                     </div>
                     <form >
-                        <div class="mb-3">
+                        <div className="mb-3">
 
-                            <label for="formFileSm" class="form-label">2: Your Image </label>
+                            <label htmlFor="formFileSm" className="form-label">2: Your Image </label>
                             <input onChange={(e) => {
                                 let selected = e.target.files[0];
                                 if (selected && types.includes(selected.type)) {
@@ -39,7 +38,7 @@ function UploadForm() {
                         <button type="button" onClick={(e) => {
                             e.preventDefault();
                             setSubmit(true);
-                        }} class="btn btn-dark text-center align-center justify-center">Submit Image</button>
+                        }} className="btn btn-dark text-center align-center justify-center">Submit Image</button>
                     </form>
                     <div className="output">
                         {error && <div className="error mt-3 mb-3 alert alert-warning" role="alert">{error} !</div>}
@@ -62,7 +61,7 @@ const ProgressBar = ({ file, setFile, insta, setInsta }) => {
     const progressChange = () => {
         setInsta("");
     }
-    if (Math.floor(progress) == 100) {
+    if (Math.floor(progress) === 100) {
         setTimeout(() => {
             window.location.reload()
         }, 2500);
