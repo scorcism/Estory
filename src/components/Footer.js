@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
 
 function Footer() {
-
     const [Joke,setJoke] = useState("Yes!! You are special");
-    const [time,currentTime] = useState(0);
 
     const fetchApi = () => {
             fetch("https://sv443.net/jokeapi/v2/joke/Programming?type=single")
@@ -37,7 +34,7 @@ function Footer() {
                         </div>
                     </div>
                 </div>
-                <div className="text-center p-3" style={{ backgroundColor: "rgba(0, 0, 0, 0.2);" }}>
+                <div className="text-center p-3" style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}>
                     © 2020 Copyright:
                     <a className="text-dark" target="_blank" href="https://github.com/scorcism">Abhishek Pathak</a>
                 </div>
