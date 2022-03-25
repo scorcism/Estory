@@ -50,7 +50,7 @@ function UploadForm() {
     )
 }
 
-const ProgressBar = ({ file, setFile, insta, setInsta }) => {
+const ProgressBar = ({ file, setFile, insta }) => {
     const { url, progress } = useStorage(file, insta);
     const message = " Window will reload soon !";
     useEffect(() => {
@@ -58,9 +58,7 @@ const ProgressBar = ({ file, setFile, insta, setInsta }) => {
             setFile(null);
         }
     }, [url, setFile])
-    const progressChange = () => {
-        setInsta("");
-    }
+    
     if (Math.floor(progress) === 100) {
         setTimeout(() => {
             window.location.reload()
@@ -68,7 +66,7 @@ const ProgressBar = ({ file, setFile, insta, setInsta }) => {
     }
     return (
         <>
-            <div onChange={progressChange} style={{ width: progress + "%" }} className="progress-bar"></div>
+            <div style={{ width: progress + "%" }} className="progress-bar"></div>
             <p className='text-center'> {Math.floor(progress)}% Uploaded - {message}</p>
         </>
     )

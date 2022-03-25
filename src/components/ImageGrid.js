@@ -1,11 +1,13 @@
-import React, { useContext } from 'react'
-import userContext from '../context/userContext';
+import React from 'react'
+import useImags from '../hooks/useImages';
 import SingleImage from './SingleImage';
 
 
 function ImageGrid() {
-    const context = useContext(userContext);
-    const { gallery } = context;
+
+    const {gallery} = useImags("Gallery")
+    console.log(gallery)
+
 
     return (
         <>
@@ -14,7 +16,7 @@ function ImageGrid() {
                     <div className="row">
 
                     {gallery.map((img) => {
-                        return   <SingleImage img={img} key={img.id} />
+                        return   <SingleImage  img={img} key={img.id} />
                     })}
                     </div>
                     </div>

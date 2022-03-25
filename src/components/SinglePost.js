@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link} from "react-router-dom";
 
-function SinglePost({th}) {
+function SinglePost({th, url}) {
 
     function CaesarDecryption(message) {
         var plainText = "";
@@ -22,12 +22,17 @@ function SinglePost({th}) {
       var decTitle = CaesarDecryption(encTitle);
       var decDesc = CaesarDecryption(encDesc);
 
+      // const imgUrlFetch = async () =>{
+      //   await fetch('https://source.unsplash.com/150x150/?thoughts,quotes').then((res)=>{res.json}).then((data)=>{
+
+      //   })
+      // }
+
     return (
         <>
-
             <div className="col-6 col-md-4 my-3">
                 <div className="card" style={{ width: "18rem" }} >
-                    <img src="https://source.unsplash.com/150x150/?thoughts,quotes" width="150" height="200" className="card-img-top" alt="..." />
+                    <img src={url} width="150" height="200" className="card-img-top" alt="img" />
                     <div className="card-body">
                         <h5 className="card-title">{decTitle? decTitle.slice(0,20).concat(" ..."):"No Title"}</h5>
                         <p className="card-text">{decDesc ? decDesc.slice(0,40).concat(" ..."):"No Desc"}</p>
@@ -35,7 +40,6 @@ function SinglePost({th}) {
                     </div>
                 </div>
             </div>
-
         </>
     )
 }

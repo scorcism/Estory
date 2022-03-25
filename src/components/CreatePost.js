@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import { db, auth } from '../firebase-config';
 import { collection, addDoc } from 'firebase/firestore'
+import { Editor } from '@tinymce/tinymce-react';
 
 function CreatePost() {
-  let [alert,setAlert] = useState(true);
+  let [alert, setAlert] = useState(true);
 
   function cipherRot13(str) {
     str = str.toUpperCase();
@@ -71,12 +72,45 @@ function CreatePost() {
           <label htmlFor="exampleFormControlTextarea1" className="form-label">Description</label>
           <textarea name="desc" value={data.desc} onChange={handleChange} className="form-control" id="exampleFormControlTextarea1" rows="7"></textarea>
         </div>
+        {/* <Editorr setData={setData}
+          apiKey="p3jdxl6q0yzd5exw19grmvsw5db4n6ooq54b68dkiau68k4o"
+        /> */}
         {alert && <div className="alert alert-danger" role="alert">Don't worry, Your messages  will be Encrypted</div>}
 
         {message && <p>{message}  GoTo <a href="/">Home</a></p>}
         <button onClick={handleSubmit} className='btn btn-primary my-2'>Create Post</button>
-        
+
       </div>
+    </>
+  )
+}
+
+
+const Editorr = ({setData}) => {
+  const handleEditorChange = (e) => {
+    setData(e.target.getContent());
+    
+  }
+  return (
+    <>
+      <Editor
+        initialValue="I love Tea :)"
+        init={{
+          height: 3000,
+          menubar: false,
+          plugins: [
+            'advlist autolink lists link image',
+            'charmap print preview anchor help',
+            'searchreplace visualblocks code',
+            'insertdatetime media table paste wordcount'
+          ],
+          toolbar:
+            'undo redo | formatselect | bold italic | \
+            alignleft aligncenter alignright | \
+            bullist numlist outdent indent | help'
+        }}
+        onChange={handleEditorChange}
+      />
     </>
   )
 }

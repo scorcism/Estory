@@ -3,6 +3,8 @@ import ImageGrid from '../components/ImageGrid'
 import UploadForm from '../components/UploadForm'
 
 function Gallery() {
+
+
   return (
     <>
       <div className="container">

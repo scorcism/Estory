@@ -3,7 +3,7 @@ import {
   useParams,
 } from "react-router-dom";
 import { db } from '../firebase-config';
-import {  getDoc, doc } from 'firebase/firestore'
+import { getDoc, doc } from 'firebase/firestore'
 
 
 function Thought() {
@@ -48,22 +48,17 @@ function Thought() {
   return (
     <>
       <div className="container mt-5">
-        <div className="card text-center">
-          <div className="card-header">
-            🐼🍕🍰💃🎊
+
+        <div class="card bg-light mb-3">
+          <div class="card-header text-center"><small className="text-muted">Author | Hero</small></div>
+          <div class="card-body">
+            <h5 class="card-title text-center">{decTitle}</h5>
+            <p class="card-text " style={{fontSize:"15px", lineHeight:"1.7em"}} >{decDesc}</p>
           </div>
-          <div className="card">
-          <div className="card-body">
-              <h5 className="card-title">{decTitle}</h5>
-              <p className="card-text" >{decDesc}</p>
-              <p className="card-text"><small className="text-muted">Author | Hero</small></p>
-            </div>
-            <img style={{ opacity: "0.7" }}  className="card-img-bottom"  src="https://source.unsplash.com/random/780x180/?thoughts,quotes" alt="Image" />
-          </div>
+          <div className="p-2  card-footer text-muted text-center">
+          Yes !! You are special
         </div>
-        <div className="p-2 mb-4 card-footer text-muted text-center">
-    The Unkonow hero
-  </div>
+        </div>
       </div>
     </>
   )
