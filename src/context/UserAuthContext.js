@@ -39,12 +39,10 @@ const UserAuthContext = ({ children }) => {
 
 
     useEffect(() => {
-
-        
-
         // Getting all the thoughts
         const getData = async () => {
             const data = await getDocs(thoughts);
+            console.log(data)
             setGetThought(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
         };
         getData()

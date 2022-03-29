@@ -24,12 +24,6 @@ function CreatePost() {
     desc: ""
   });
 
-  const [secureData, setSecureData] = useState({
-    title: "",
-    desc: "",
-  })
-
-
   let name, value;
   const handleChange = (e) => {
     name = e.target.name;
@@ -44,13 +38,9 @@ function CreatePost() {
     var rawDesc = data.desc
     var encTitle = cipherRot13(rawTitle);
     var encDesc = cipherRot13(rawDesc);
+    console.log(encTitle, encDesc)
 
-    setSecureData({
-      title: encTitle,
-      desc: encDesc,
-    })
-
-    await addDoc(thoughts, { Name: auth.currentUser.displayName, Title: secureData.title, Desc: secureData.desc })
+    await addDoc(thoughts, { Name: auth.currentUser.displayName, Title: encTitle, Desc: encDesc })
     setMessage(`Your Thought Inserted Successfully.`)
     setData({
       title: "",
@@ -86,10 +76,10 @@ function CreatePost() {
 }
 
 
-const Editorr = ({setData}) => {
+const Editorr = ({ setData }) => {
   const handleEditorChange = (e) => {
     setData(e.target.getContent());
-    
+
   }
   return (
     <>

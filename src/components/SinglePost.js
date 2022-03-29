@@ -2,6 +2,7 @@ import React from 'react'
 import {Link} from "react-router-dom";
 
 function SinglePost({th, url}) {
+  console.log(th)
 
     function CaesarDecryption(message) {
         var plainText = "";
@@ -17,16 +18,14 @@ function SinglePost({th, url}) {
         }
         return plainText;
       }
+
       var encTitle = th.Title
       var encDesc = th.Desc
+      console.log(encDesc, encTitle)
       var decTitle = CaesarDecryption(encTitle);
       var decDesc = CaesarDecryption(encDesc);
 
-      // const imgUrlFetch = async () =>{
-      //   await fetch('https://source.unsplash.com/150x150/?thoughts,quotes').then((res)=>{res.json}).then((data)=>{
-
-      //   })
-      // }
+      console.log(decDesc, decTitle)
 
     return (
         <>
