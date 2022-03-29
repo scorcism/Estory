@@ -3,7 +3,7 @@
 ## Run
 ```sh
 1) Clone the repo
-3) You need to create your direbase account first and setup the SDk
+3) You need to create your firebase account first and setup the SDk
 2) npm run start
 ```
 
