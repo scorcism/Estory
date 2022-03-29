@@ -6,8 +6,6 @@ import SingleImage from './SingleImage';
 function ImageGrid() {
 
     const {gallery} = useImags("Gallery")
-    console.log(gallery)
-
 
     return (
         <>

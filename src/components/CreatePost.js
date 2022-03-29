@@ -38,7 +38,6 @@ function CreatePost() {
     var rawDesc = data.desc
     var encTitle = cipherRot13(rawTitle);
     var encDesc = cipherRot13(rawDesc);
-    console.log(encTitle, encDesc)
 
     await addDoc(thoughts, { Name: auth.currentUser.displayName, Title: encTitle, Desc: encDesc })
     setMessage(`Your Thought Inserted Successfully.`)

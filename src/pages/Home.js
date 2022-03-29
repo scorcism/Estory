@@ -7,7 +7,6 @@ function Home() {
   const context = useContext(userContext);
   const { getThought } = context;
   const url = `https://source.unsplash.com/150x150/?thoughts,quotes`
-  console.log(getThought)
 
   return (
     <>

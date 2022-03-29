@@ -2,7 +2,6 @@ import React from 'react'
 import {Link} from "react-router-dom";
 
 function SinglePost({th, url}) {
-  console.log(th)
 
     function CaesarDecryption(message) {
         var plainText = "";
@@ -21,11 +20,9 @@ function SinglePost({th, url}) {
 
       var encTitle = th.Title
       var encDesc = th.Desc
-      console.log(encDesc, encTitle)
       var decTitle = CaesarDecryption(encTitle);
       var decDesc = CaesarDecryption(encDesc);
 
-      console.log(decDesc, decTitle)
 
     return (
         <>
