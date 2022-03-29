@@ -13,9 +13,9 @@ function Home() {
       <div class="container my-4">
         <div className='container w-80 mt-5'>
           <h2 className="text-center mt-2 mb-2">Blogs are here !!</h2>
-          <div className="row">
+          <div className="row" style={{ minHeight: "30vh" }}>
             {getThought.map((th) => {
-              return <SinglePost url={url}  key={th.id} th={th} />
+              return (th ? "No posts" : <SinglePost url={url} key={th.id} th={th} />)
             })}
           </div>
         </div>
